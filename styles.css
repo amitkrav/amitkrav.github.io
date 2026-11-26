@@ -1,0 +1,327 @@
+@font-face { font-family: Bricolage; src: url('fonts/bricolage.woff2') format('woff2'); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: Atkinson; src: url('fonts/atkinson.woff2') format('woff2'); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: Orbitron; src: url('fonts/Orbitron-Variable.ttf') format('truetype'); font-weight: 400 900; font-display: swap; }
+
+:root {
+  color-scheme: light;
+  --paper: #fcf6df;
+  --ink: #322b40;
+  --muted: #635c62;
+  --line: #cfc7b5;
+  --grape: #654773;
+  --lime: #e2eb9e;
+  --ice: #d7dfed;
+  --display: Bricolage, system-ui, sans-serif;
+  --gutter: clamp(1rem, 5vw, 5rem);
+}
+* { box-sizing: border-box; }
+[hidden], template { display: none !important; }
+html { scroll-padding-top: 5rem; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 400 1.0625rem/1.45 Atkinson, system-ui, sans-serif; }
+h1, h2, h3, p, figure, fieldset, ul, ol, dl, dd { margin: 0; }
+h1, h2, h3, .byline, .card-link, .model-name, .tabs, button { font-family: var(--display); }
+h1, h2, h3 { line-height: 1.04; letter-spacing: -.042em; }
+h2 { font-size: clamp(2rem, 3.7vw, 3.65rem); font-weight: 720; }
+h3 { font-size: clamp(1.35rem, 2vw, 2rem); font-weight: 680; }
+a { color: inherit; text-underline-offset: .2em; }
+img { display: block; max-width: 100%; height: auto; }
+button { color: inherit; cursor: pointer; font-size: inherit; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 3px solid #8c399b; outline-offset: 3px; }
+.space :focus-visible { outline-color: #f8d585; }
+.shell { width: min(calc(100% - 2 * var(--gutter)), 78rem); margin-inline: auto; }
+.sr, .planet-picks input { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: fixed; top: .4rem; left: var(--gutter); transform: translateY(-180%); z-index: 20; background: var(--paper); padding: .65rem 1rem; }
+.skip:focus { transform: none; }
+.mast { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--line); }
+.bar { min-height: 3.9rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.byline { font-size: 1.22rem; font-weight: 750; letter-spacing: -.045em; }
+.bar a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.bar nav { display: flex; gap: clamp(.85rem, 2.6vw, 2.6rem); font-size: .98rem; }
+.bar nav a { gap: .2em; }
+.bar nav svg { width: .85em; height: .85em; }
+.bar a:hover, .bar a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; }
+.hello { display: grid; grid-template-columns: max-content 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-block: clamp(2.25rem, 4.6vh, 3.6rem); }
+.hello h1 { font-size: clamp(4rem, 7.9vw, 7.5rem); font-weight: 770; line-height: .88; letter-spacing: -.045em; }
+.hello h1 span { color: var(--grape); display: block; width: fit-content; }
+.bio { max-width: 66ch; }
+.bio p + p { margin-top: .65em; }
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.9rem, 1.8vw, 1.6rem); }
+.project { display: flex; flex-direction: column; min-width: 0; text-decoration: none; border-radius: 1.2rem; }
+.cover { position: relative; isolation: isolate; overflow: hidden; border-radius: 1.2rem 1.2rem 0 0; height: clamp(13rem, 30vh, 18.75rem); }
+.space { background-color: #021129; background-image: var(--stars, none), radial-gradient(ellipse at 66% 45%, #1d3754, #0b1a33 52%, #021129); color: #f6f3ed; }
+.cover h2 { position: absolute; margin: 0; z-index: 1; }
+.arcade .cover h2 { left: 6%; top: 50%; transform: translateY(-50%); }
+.mc-logo { display: inline-flex; flex-direction: column; align-items: center; color: white; font: italic 850 clamp(1.7rem, 3.1vw, 3rem)/.98 Orbitron, sans-serif; letter-spacing: -.032em; }
+.cover-planet { position: absolute; inset: 0 0 0 43%; pointer-events: none; }
+.cover-planet .stage { touch-action: auto; height: 100%; aspect-ratio: auto; background: transparent; }
+.cover-art { width: 100%; height: 100%; object-fit: cover; }
+.village h2 { left: 5%; bottom: 8%; width: 44%; max-width: 16rem; }
+.village::after { content: ''; position: absolute; inset: 30% 40% 0 0; background: radial-gradient(ellipse at bottom left, #35412299, transparent 73%); pointer-events: none; }
+.mw-logo { width: 100%; height: auto; }
+.card-copy { flex: 1; display: flex; flex-direction: column; align-items: flex-start; padding: clamp(1rem, 1.7vw, 1.65rem); background: #e8e1f2; border-radius: 0 0 1.2rem 1.2rem; }
+.town .card-copy { background: #e3e9c3; }
+.card-copy > p { font-size: clamp(1.06rem, 1.42vw, 1.38rem); line-height: 1.32; max-width: 42ch; }
+.card-copy small { font-size: .9rem; color: #574e5e; margin: .6rem 0 1.15rem; }
+.card-link { display: flex; align-items: center; gap: .8rem; margin-top: auto; font-weight: 700; letter-spacing: -.022em; }
+.card-link svg { width: 1.65rem; height: 1.65rem; border-radius: 50%; padding: .27rem; background: var(--ink); color: var(--paper); transition: transform .2s; }
+.project:hover .card-link { text-decoration: underline; }
+.project:hover .card-link svg { transform: translateX(.22rem); }
+.art-credit { margin: .55rem 0 1rem calc(50% + .5rem); font-size: .8rem; color: var(--muted); }
+.game main { padding-bottom: 4.2rem; }
+.game-intro { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); align-items: stretch; gap: clamp(1.5rem, 4.5vw, 4.5rem); margin-block: clamp(1.5rem, 3.2vw, 3rem); }
+.title-panel { min-height: 12rem; display: grid; place-items: center; border-radius: 1.2rem; padding: 1.5rem; }
+.title-panel .mc-logo { font-size: clamp(2.2rem, 4vw, 4rem); }
+.grove { background: #e2e8c1; }
+.grove .mw-logo { width: min(85%, 17.5rem); }
+.game-copy { align-self: center; max-width: 65ch; }
+.game-copy p + p { margin-top: .75rem; }
+.metadata, .caption, .triangles, figcaption, .art-credit { color: var(--muted); }
+.metadata { font-size: .94rem; }
+.game-copy .metadata + p { font-size: clamp(1.15rem, 1.65vw, 1.55rem); line-height: 1.35; letter-spacing: -.015em; }
+.assets, .play, .balance, .chapter { border-top: 1px solid var(--line); padding-top: clamp(1.4rem, 3vw, 2.65rem); margin-top: clamp(1.8rem, 3.5vw, 3rem); }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.section-head p { margin-top: .55rem; }
+.motion, .send { border: 1px solid #ada3a6; background: transparent; font-weight: 650; font-size: .9rem; padding: .5rem .95rem; border-radius: 2rem; min-height: 44px; white-space: nowrap; }
+.motion:hover { background: #eee4ce; }
+.assets h3, .chapter h3 { margin: 1.7rem 0 .8rem; }
+.model-row { display: grid; gap: clamp(.65rem, 1.35vw, 1.25rem); }
+.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pair, .meteor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.stage-wrap, .stage { position: relative; }
+.stage { display: grid; place-items: center; aspect-ratio: 1.42; border-radius: .85rem; overflow: hidden; user-select: none; touch-action: pan-y; background: radial-gradient(ellipse at 45% 31%, #e4d8ac, #cfc096 70%, #c4b588); }
+.model[data-state="ready"] .stage { cursor: grab; }
+.model[data-state="ready"] .stage:active { cursor: grabbing; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.model-status { z-index: 1; max-width: 100%; color: var(--ink); font-size: .83rem; text-align: center; }
+.model-status img { width: 100%; }
+.zoom-tools, .planet-steps { display: flex; gap: 3px; }
+.zoom-tools { position: absolute; right: .4rem; bottom: .4rem; }
+.icon-button { width: 2.05rem; height: 2.05rem; flex: none; display: grid; place-items: center; padding: 0; color: #2e2b40; background: #faf7ed; border: 1px solid #a8a4a7; border-radius: 50%; }
+.icon-button svg { width: 1.03rem; height: 1.03rem; }
+.icon-button:hover { background: var(--lime); }
+.icon-button:disabled { opacity: .62; }
+.model figcaption { padding: .62rem .1rem 0; font-size: .88rem; }
+.model-name { color: var(--ink); font-size: 1.1rem; font-weight: 700; line-height: 1.15; }
+.triangles { display: block; margin-top: .12rem; font-variant-numeric: tabular-nums; }
+.observatory { padding: clamp(1rem, 2vw, 2rem); display: grid; grid-template-columns: minmax(0, 1.32fr) minmax(0, 1fr); gap: clamp(1rem, 2.2vw, 2.2rem); border-radius: 1.2rem; }
+.observatory .stage { background: transparent; }
+.planet-column { min-width: 0; display: flex; flex-direction: column; }
+.planet-column > .model { flex: 1; display: flex; flex-direction: column; }
+.planet-column .stage-wrap { flex: 1; display: flex; }
+.planet-column .stage { width: 100%; aspect-ratio: 1.75; }
+.observatory .model-name, .observatory .model-status { color: #f7f4ef; }
+.observatory .triangles, .meteor-column > p { color: #c4cfdd; }
+.planet-picks { display: flex; flex-wrap: wrap; gap: .25rem; border: 0; padding: 0; }
+.planet-picks label { position: relative; font-size: .88rem; cursor: pointer; }
+.planet-picks span { display: grid; place-items: center; min-height: 2.2rem; padding: .2rem .65rem; border: 1px solid #667890; border-radius: 2rem; }
+.planet-picks input:checked + span { color: #102139; background: #dce6ff; border-color: #dce6ff; }
+.planet-picks input:focus-visible + span { outline: 3px solid #f8d585; outline-offset: 2px; }
+.planet-actions { margin-top: .6rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.planet-steps .icon-button { width: 2.75rem; height: 2.75rem; }
+.send { background: var(--lime); border-color: transparent; color: var(--ink); }
+.send:hover:enabled { background: #f1f8b1; }
+.send:disabled { opacity: .65; }
+.meteor-column { padding-left: clamp(1rem, 2vw, 2rem); border-left: 1px solid #455469; }
+.meteor-grid { gap: .9rem .65rem; }
+.meteor-grid .stage { aspect-ratio: 1.9; }
+.meteor-grid figcaption { padding-top: .2rem; }
+.meteor-grid .model-name { font-size: .97rem; }
+.meteor-grid .triangles { font-size: .78rem; }
+.meteor-column > p { font-size: .88rem; margin-top: 1rem; }
+@media (hover: hover) and (pointer: fine) {
+  .stage-wrap:not(:hover):not(:focus-within) .zoom-tools { opacity: 0; }
+}
+.run-loop, .balance > p { margin-top: .65rem; }
+.run-loop { font-size: clamp(1.12rem, 1.65vw, 1.5rem); }
+.play h3 { margin: 1.45rem 0 .7rem; }
+.currencies { border-block: 1px solid var(--line); }
+.currencies > div, .currencies dt { display: flex; align-items: center; gap: .65rem; }
+.currencies > div { gap: 1.15rem; padding-block: .4rem; }
+.currencies > div + div { border-top: 1px solid var(--line); }
+.currencies dt { flex: 0 0 8.2rem; font-family: var(--display); }
+.currencies strong { border-bottom: 3px solid var(--chip); }
+.currency-metal { --chip: #cd6b2f; } .currency-metal strong { color: #8b431b; }
+.currency-stardust { --chip: #b94fff; } .currency-stardust strong { color: #8235a7; }
+.currency-shimmer { --chip: #ffd100; } .currency-shimmer strong { color: #755a00; }
+.mechanics { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: .65rem; }
+.mechanics > div { grid-column: span 4; border-radius: .65rem; background: #f3ecd5; padding: .85rem 1rem; }
+.mechanics > div:nth-child(n+4):nth-child(-n+7) { grid-column: span 3; }
+.mechanics h4 { margin: 0 0 .32rem; font: 720 1.05rem/1.2 var(--display); letter-spacing: -.025em; }
+.mechanics p { font-size: .95rem; line-height: 1.4; }
+.asset-basis { font-size: .9rem; color: var(--muted); margin: -.35rem 0 .75rem; }
+.asset-footnote { margin-top: .8rem; font-size: .95rem; }
+.building-stats, .planet-stats { display: block; margin-top: .4rem; }
+.planet-stats { color: #e7edf6; }
+.meteor-values { grid-column: 1 / -1; min-width: 0; }
+.meteor-values table { width: 100%; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums; }
+.meteor-values caption { text-align: left; color: #e7edf6; margin-bottom: .55rem; }
+.meteor-values th, .meteor-values td { text-align: left; vertical-align: top; padding: .3rem .45rem; border-top: 1px solid #455469; }
+.meteor-values th { font-weight: 650; color: #f6f3ed; }
+.meteor-values td { color: #d2dfed; }
+.balance-notes { padding: 0; list-style-position: inside; margin-top: 1.25rem; }
+.balance-notes > li { padding: 1.05rem 0; border-top: 1px solid var(--line); }
+.balance-notes li::marker { color: var(--grape); font: 700 1.13rem var(--display); }
+.balance-notes h3 { display: inline; font-size: 1.25rem; line-height: 1.25; letter-spacing: -.025em; }
+.balance-notes dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: .65rem; }
+.balance-notes dt { color: var(--grape); font: 700 .91rem var(--display); margin-bottom: .2rem; }
+.balance-notes dd { font-size: .98rem; }
+.captures { margin-block: 2rem; }
+.captures h2 { margin-bottom: .75rem; }
+.shot-strip { display: flex; gap: .6rem; overflow-x: auto; scroll-snap-type: x proximity; }
+.shot-strip .image-thumb { flex: 0 0 auto; scroll-snap-align: start; }
+.shot-strip img { height: 11rem; width: auto; border-radius: .5rem; }
+.concept img { width: 100%; border-radius: 1.1rem; }
+figcaption, .caption { font-size: .92rem; }
+.concept figcaption, .kit-grid figcaption, .chart figcaption { margin-top: .5rem; }
+.chapter > p { max-width: 72ch; margin-top: .7rem; }
+.chapter .caption { margin-top: .5rem; }
+.kit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.65rem, 2vw, 1.4rem); }
+.kit-grid .image-thumb, .kit-image { background: #d8ddcb; border-radius: .72rem; }
+.kit-grid img { width: 100%; }
+.world .stage { background: radial-gradient(ellipse at 45% 30%, #cdd8c8, #a3bbb1); aspect-ratio: 1.95; }
+.specs { margin-top: .6rem; font-size: .93rem; color: var(--ink); }
+.specs div { display: grid; grid-template-columns: 5.2rem 1fr; gap: .5rem; padding: .2rem 0; border-top: 1px solid var(--line); }
+.specs dt { color: var(--muted); }
+.chart { max-width: 52rem; margin-top: 1.2rem; }
+.pentagon { width: 100%; height: auto; padding: clamp(.5rem, 2vw, 2rem); border-radius: 1rem; background: #eee9d5; font-family: var(--display); }
+.seasons-grid { margin-top: 1rem; width: 100%; border-spacing: .4rem; table-layout: fixed; }
+.seasons-grid th { font: 650 1rem var(--display); }
+.seasons-grid thead td { width: 12%; }
+.seasons-grid th[scope="row"] { text-align: left; }
+.seasons-grid td { border-radius: .7rem; text-align: center; overflow: hidden; }
+.seasons-grid .stage, .seasons-grid canvas { max-width: 100%; }
+.seasons-grid .stage { aspect-ratio: auto; height: clamp(5.2rem, 14vw, 13rem); background: transparent; }
+.seasons-grid .model-status { padding: .25rem; font-size: .8rem; }
+.spring { background: #f3dfe6; } .summer { background: #e4ebca; } .autumn { background: #f3dcc5; } .winter { background: #dfe8ee; }
+.image-thumb { display: block; border: 0; padding: 0; background: transparent; border-radius: inherit; cursor: zoom-in; }
+.concept .image-thumb, .kit-grid .image-thumb { width: 100%; }
+.currencies .image-thumb { min-width: 32px; min-height: 34px; display: grid; place-items: center; }
+html:has(.lightbox[open]) { overflow: hidden; }
+.lightbox { position: fixed; inset: 0; margin: 0; width: 100%; height: 100%; max-width: none; max-height: none; padding: 0; border: 0; background: transparent; color: #f7f4eb; }
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox::backdrop { background: rgba(18, 17, 26, .91); animation: veil-in .2s ease both; }
+.lightbox.closing::backdrop { animation: veil-out .21s ease both; }
+@keyframes veil-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes veil-out { from { opacity: 1; } to { opacity: 0; } }
+.lightbox-close { position: absolute; top: .75rem; right: .75rem; z-index: 1; width: 44px; height: 44px; }
+.lightbox figure { display: grid; justify-items: center; margin-inline: .75rem; }
+.lightbox img { width: auto; height: auto; max-width: calc(100vw - 1.5rem); max-height: calc(100dvh - 6.5rem); transform-origin: top left; cursor: zoom-out; }
+.lightbox figcaption { color: #eee9e1; font-size: .9rem; text-align: center; margin-top: .6rem; }
+.lightbox.closing figcaption { opacity: 0; }
+@media (max-width: 1020px) {
+  .mechanics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mechanics > div, .mechanics > div:nth-child(n+4):nth-child(-n+7) { grid-column: auto; }
+}
+@media (max-width: 900px) {
+  .meteor-values table, .meteor-values caption { display: block; }
+  .meteor-values thead { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+  .meteor-values thead tr, .meteor-values thead th { display: block; }
+  .meteor-values tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+  .meteor-values tr { display: block; }
+  .meteor-values th[scope="row"] { display: block; padding: .45rem 0; }
+  .meteor-values td { display: flex; justify-content: space-between; gap: .35rem; padding: .15rem 0; font-size: .84rem; }
+  .meteor-values td::before { content: attr(data-label); color: #becbdb; }
+  .meteor-values td:empty { display: none; }
+}
+@media (max-width: 580px) {
+  .currencies > div { display: block; padding-block: .55rem; }
+  .currencies dd { padding-left: 2.65rem; }
+  .mechanics { grid-template-columns: 1fr; }
+
+}
+@media (max-width: 760px) {
+  .hello { grid-template-columns: 1fr; gap: 1.25rem; padding: 2rem 0; }
+  .hello h1 { font-size: clamp(3.5rem, 12vw, 5.4rem); }
+  .hello h1 span { display: inline; }
+  .projects { grid-template-columns: 1fr; }
+  .cover { height: auto; aspect-ratio: 2.15; }
+  .mc-logo { font-size: clamp(1.7rem, 6.5vw, 3rem); }
+  .art-credit { margin-left: 0; }
+  .game-intro { grid-template-columns: 1fr; gap: 1rem; }
+  .title-panel { min-height: 9rem; }
+  .title-panel .mc-logo { font-size: 2.5rem; }
+  .grove .mw-logo { width: 14rem; }
+  .four, .three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .observatory { grid-template-columns: 1fr; }
+  .meteor-column { padding: 1rem 0 0; border-left: 0; border-top: 1px solid #455469; }
+  .planet-column .stage { aspect-ratio: 1.6; }
+  .balance-notes dl { grid-template-columns: 1fr; gap: .55rem; }
+  .specs div { display: block; }
+  .specs dt, .specs dd { display: inline; }
+  .specs dt { margin-right: .3em; }
+}
+@media (max-width: 480px) {
+  body { font-size: 1rem; }
+  .bar { min-height: 3.4rem; gap: .35rem; }
+  .page-nav { top: 3.4rem !important; }
+  .byline { font-size: 1rem; }
+  .bar nav { gap: .65rem; font-size: .83rem; }
+  .bar nav svg { display: none; }
+  .section-head { align-items: flex-start; }
+  .stage { aspect-ratio: 1.12; }
+  .model-name { font-size: 1rem; }
+  .world .stage { aspect-ratio: 1.05; }
+  .stage-wrap { padding-bottom: 2.4rem; }
+  .stage-wrap:has(.zoom-tools[hidden]) { padding-bottom: 0; }
+  .zoom-tools { right: 0; bottom: 0; }
+  .zoom-tools[hidden] { display: none; }
+  .icon-button { width: 2rem; height: 2rem; }
+  .planet-column .stage-wrap { display: block; }
+  .planet-picks { gap: .18rem; }
+  .planet-picks span { padding-inline: .42rem; }
+  .meteor-grid .stage { aspect-ratio: 1.5; }
+  .seasons-grid { border-spacing: .22rem; }
+  .seasons-grid th { font-size: .82rem; }
+  .seasons-grid .model-status { font-size: .72rem; }
+  .seasons-grid thead td { width: 17%; }
+  .pentagon { padding: .1rem; }
+  .pentagon text { font-size: 25px; }
+  .pentagon tspan { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+/* Use the real Blender capture while the cover model loads or if WebGL is unavailable. */
+.cover-planet:not([data-state="ready"]) .stage::before { content: ''; height: 76%; max-width: 88%; aspect-ratio: 1; border-radius: 50%; background: url('img/mc_planet1.webp') 38.2% 44% / 420% auto; }
+.cover-planet .model-status { display: none; }
+
+/* Gameplay captures: one portrait video and four portrait screenshots. Placeholders until the files exist. */
+.captures { margin-block: clamp(1.5rem, 3vw, 2.6rem); }
+.capture-grid { display: grid; grid-template-columns: 1fr 1fr 1.7fr 1fr 1fr; gap: clamp(.6rem, 1.6vw, 1.2rem); align-items: center; margin-top: 1rem; }
+.capture-slot { aspect-ratio: 828 / 1704; border-radius: 1.1rem; border: 2px dashed var(--line); display: grid; place-items: center; text-align: center; color: var(--muted); font-size: .9rem; overflow: hidden; background: color-mix(in srgb, currentColor 5%, transparent); }
+.capture-slot > img, .capture-slot > video, .capture-slot > button { width: 100%; height: 100%; object-fit: cover; display: block; }
+.capture-slot.filled { border: 0; background: none; }
+.capture-slot img, .capture-slot video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+.capture-slot video { background: #05060d; object-fit: contain; }
+.video-slot { aspect-ratio: 720 / 1480; }
+video:fullscreen { object-fit: contain; }
+@media (max-width: 760px) { .capture-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .video-cell { grid-column: 1 / -1; grid-row: 1; max-width: 16rem; justify-self: center; width: 100%; } }
+
+.video-tools { display: flex; justify-content: center; gap: .5rem; margin-bottom: .6rem; }
+.video-tools .icon-button { width: 2.75rem; height: 2.75rem; }
+.video-slot video { cursor: pointer; }
+[data-sound][aria-pressed="false"] .sound-on, [data-sound][aria-pressed="true"] .sound-off,
+[data-playback][aria-pressed="false"] .is-paused, [data-playback][aria-pressed="true"] .is-playing { display: none; }
+
+/* Section rail: a sticky jump list. Side column on wide screens, a strip under the top bar on narrow ones. */
+html { scroll-behavior: smooth; }
+.page-nav { display: flex; font-family: var(--display); font-weight: 650; font-size: .95rem; }
+.page-nav a { display: flex; align-items: center; min-height: 44px; text-decoration: none; color: var(--muted); white-space: nowrap; }
+.page-nav a:hover { color: inherit; text-decoration: underline; }
+.page-nav a[aria-current] { color: inherit; }
+@media (min-width: 1100px) {
+  .game main { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: clamp(1.75rem, 3vw, 3rem); }
+  .game main > * { grid-column: 2; }
+  .game main > .page-nav { grid-column: 1; grid-row: 1 / span 12; position: sticky; top: 5.4rem; align-self: start; flex-direction: column; margin-top: clamp(1.5rem, 3vw, 2.6rem); border-left: 2px solid var(--line); }
+  .page-nav a { padding: 0 1rem 0 .9rem; margin-left: -2px; border-left: 2px solid transparent; }
+  .page-nav a[aria-current] { border-left-color: currentColor; }
+}
+@media (max-width: 1099.98px) {
+  .page-nav { position: sticky; top: 3.8rem; z-index: 9; gap: 1.3rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); overflow-x: auto; scrollbar-width: none; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .page-nav a[aria-current] { box-shadow: inset 0 -2px currentColor; }
+  .page-nav { max-width: 100vw; overscroll-behavior-x: contain; }
+  html { scroll-padding-top: 7.6rem; }
+}
+@media (max-width: 430px) { .page-nav { gap: .9rem; font-size: .86rem; } .seasons-grid { border-spacing: .12rem; } .seasons-grid th { font-size: .74rem; } }

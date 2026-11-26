@@ -1,0 +1,488 @@
+[
+ {
+  "id": "flak",
+  "file": "models/flak.glb",
+  "name": "Flak Turret",
+  "game": "Meteor Clash",
+  "triangles": 770,
+  "note": "The first turret a player unlocks.",
+  "rig": {
+   "yawNode": "yaw",
+   "pitchNode": "pitch",
+   "pitchAxisThree": [
+    0,
+    0,
+    1
+   ],
+   "pitchRangeDeg": [
+    -4,
+    32
+   ],
+   "yawRangeDeg": [
+    -70,
+    70
+   ],
+   "barrelForwardBlender": "+X"
+  }
+ },
+ {
+  "id": "gatling",
+  "file": "models/gatling.glb",
+  "name": "Gatling Turret",
+  "game": "Meteor Clash",
+  "triangles": 1296,
+  "note": "Light shots, fired fast.",
+  "rig": {
+   "yawNode": "yaw",
+   "pitchNode": "pitch",
+   "pitchAxisThree": [
+    1,
+    0,
+    0
+   ],
+   "pitchRangeDeg": [
+    -8,
+    22
+   ],
+   "yawRangeDeg": [
+    -70,
+    70
+   ],
+   "barrelForwardBlender": "+Y"
+  }
+ },
+ {
+  "id": "rocket",
+  "file": "models/rocket.glb",
+  "name": "Rocket Turret",
+  "game": "Meteor Clash",
+  "triangles": 1768,
+  "note": "Slow, heavy, with splash damage.",
+  "rig": {
+   "yawNode": "yaw",
+   "pitchNode": "pitch",
+   "pitchAxisThree": [
+    0,
+    0,
+    1
+   ],
+   "pitchRangeDeg": [
+    -4,
+    30
+   ],
+   "yawRangeDeg": [
+    -70,
+    70
+   ],
+   "barrelForwardBlender": "+X"
+  }
+ },
+ {
+  "id": "laser",
+  "file": "models/laser.glb",
+  "name": "Laser Turret",
+  "game": "Meteor Clash",
+  "triangles": 406,
+  "note": "Longest range, last to unlock. A fixed tower.",
+  "rig": null,
+  "pulseMaterial": "Energy"
+ },
+ {
+  "id": "powerplant",
+  "file": "models/powerplant.glb",
+  "name": "Power Plant",
+  "game": "Meteor Clash",
+  "triangles": 988,
+  "note": "An economy building."
+ },
+ {
+  "id": "windmill",
+  "file": "models/windmill.glb",
+  "name": "Windmill",
+  "game": "Meteor Clash",
+  "triangles": 208,
+  "note": "Creates building slots.",
+  "spin": {
+   "node": "Blades",
+   "degPerSec": -90,
+   "axis": "hub: thinnest axis of the Blades bounding box, through its center (horizontal). In game: local Z at -90 deg/s"
+  }
+ },
+ {
+  "id": "city",
+  "file": "models/city.glb",
+  "name": "City",
+  "game": "Meteor Clash",
+  "triangles": 1892,
+  "note": "Commerce and Research cities pay out at the end of each wave."
+ },
+ {
+  "id": "planet1",
+  "file": "models/planet1.glb",
+  "name": "Planet 1",
+  "game": "Meteor Clash",
+  "triangles": 2826,
+  "note": "",
+  "bodyRadius": 1.0
+ },
+ {
+  "id": "planet2",
+  "file": "models/planet2.glb",
+  "name": "Planet 2",
+  "game": "Meteor Clash",
+  "triangles": 1904,
+  "note": "",
+  "bodyRadius": 0.97
+ },
+ {
+  "id": "planet3",
+  "file": "models/planet3.glb",
+  "name": "Planet 3",
+  "game": "Meteor Clash",
+  "triangles": 1588,
+  "note": "",
+  "bodyRadius": 0.95
+ },
+ {
+  "id": "planet4",
+  "file": "models/planet4.glb",
+  "name": "Planet 4",
+  "game": "Meteor Clash",
+  "triangles": 3580,
+  "note": "",
+  "bodyRadius": 0.95
+ },
+ {
+  "id": "planet5",
+  "file": "models/planet5.glb",
+  "name": "Planet 5",
+  "game": "Meteor Clash",
+  "triangles": 2902,
+  "note": "",
+  "bodyRadius": 0.96
+ },
+ {
+  "id": "meteor1",
+  "file": "models/meteor1.glb",
+  "name": "Meteoroid",
+  "game": "Meteor Clash",
+  "triangles": 306,
+  "meteor": {
+   "look": "vertex colors gray #788188 + black",
+   "glow": null,
+   "trail": "#FFFFFF"
+  }
+ },
+ {
+  "id": "meteor2",
+  "file": "models/meteor2.glb",
+  "name": "Asteroid",
+  "game": "Meteor Clash",
+  "triangles": 320,
+  "meteor": {
+   "look": "vertex colors brown #886E3C, red #C71900, orange #FF9E00",
+   "glow": null,
+   "trail": "#FFFFFF"
+  }
+ },
+ {
+  "id": "meteor_fire",
+  "file": "models/meteor2.glb",
+  "name": "Flaming Meteoroid",
+  "game": "Meteor Clash",
+  "triangles": 320,
+  "meteor": {
+   "look": "reuses meteor2.glb mesh; in game the mesh and a 1.057x shell use an additive red material, emission ~ (1,0.106,0) x12",
+   "glow": "#FF1B00",
+   "trail": "#FF4600"
+  }
+ },
+ {
+  "id": "meteor_gold",
+  "file": "models/meteor_gold.glb",
+  "name": "Gold Meteoroid",
+  "game": "Meteor Clash",
+  "triangles": 306,
+  "meteor": {
+   "look": "vertex colors gold #FFD700 + dark gold #746200, plus 1.066x additive glow shell, emission ~ (1,0.42,0) x32",
+   "glow": "#FF6B00",
+   "trail": "#FFCA00"
+  }
+ },
+ {
+  "id": "mw_veil_shrine",
+  "file": "models/mw_veil_shrine.glb",
+  "name": "Veil Shrine",
+  "game": "My World",
+  "triangles": 4159,
+  "untextured": true,
+  "landmark": {
+   "group": "Mystical",
+   "unlockStep": 3,
+   "identityPush": "+6% Mystical",
+   "bonus": "Aether +25%; Convergence Event frequency +15%",
+   "maxPerTown": 2
+  }
+ },
+ {
+  "id": "mw_dream_spire",
+  "file": "models/mw_dream_spire.glb",
+  "name": "Dream Spire",
+  "game": "My World",
+  "triangles": 3073,
+  "untextured": true,
+  "landmark": {
+   "group": "Mystical",
+   "unlockStep": 5,
+   "identityPush": "+10% Mystical",
+   "bonus": "Aether +40%; Dreamer citizens appear 50% more often",
+   "maxPerTown": 1
+  }
+ },
+ {
+  "id": "mw_iron_works",
+  "file": "models/mw_iron_works.glb",
+  "name": "Ironworks",
+  "game": "My World",
+  "triangles": 4692,
+  "untextured": true,
+  "landmark": {
+   "group": "Industrial",
+   "unlockStep": 3,
+   "identityPush": "+6% Industrial",
+   "bonus": "Materials +25%; Aether -10%; Happiness -0.05 nearby",
+   "maxPerTown": 2
+  }
+ },
+ {
+  "id": "mw_grand_forge",
+  "file": "models/mw_grand_forge.glb",
+  "name": "Grand Forge",
+  "game": "My World",
+  "triangles": 8009,
+  "untextured": true,
+  "landmark": {
+   "group": "Industrial",
+   "unlockStep": 5,
+   "identityPush": "+10% Industrial",
+   "bonus": "Materials +40%; Knowledge +20%; Happiness -0.08 nearby",
+   "maxPerTown": 1
+  }
+ },
+ {
+  "id": "mw_civic_hall",
+  "file": "models/mw_civic_hall.glb",
+  "name": "Civic Hall",
+  "game": "My World",
+  "triangles": 12546,
+  "untextured": true,
+  "landmark": {
+   "group": "Grand",
+   "unlockStep": 3,
+   "identityPush": "+6% Grand",
+   "bonus": "Prestige +25%; Happiness +0.06 in a large radius",
+   "maxPerTown": 2
+  }
+ },
+ {
+  "id": "mw_grand_monument",
+  "file": "models/mw_grand_monument.glb",
+  "name": "Grand Monument",
+  "game": "My World",
+  "triangles": 7779,
+  "untextured": true,
+  "landmark": {
+   "group": "Grand",
+   "unlockStep": 5,
+   "identityPush": "+10% Grand",
+   "bonus": "Prestige +40%; all zone output +8% nearby",
+   "maxPerTown": 1
+  }
+ },
+ {
+  "id": "mw_market_place",
+  "file": "models/mw_market_place.glb",
+  "name": "Marketplace",
+  "game": "My World",
+  "triangles": 8019,
+  "untextured": true,
+  "landmark": {
+   "group": "Mercantile",
+   "unlockStep": 3,
+   "identityPush": "+6% Mercantile",
+   "bonus": "Gold +25%; Influence +15%; Happiness +0.03",
+   "maxPerTown": 2
+  }
+ },
+ {
+  "id": "mw_grand_bazaar",
+  "file": "models/mw_grand_bazaar.glb",
+  "name": "Grand Bazaar",
+  "game": "My World",
+  "triangles": 13751,
+  "untextured": true,
+  "landmark": {
+   "group": "Mercantile",
+   "unlockStep": 5,
+   "identityPush": "+10% Mercantile",
+   "bonus": "Gold +40%; Influence +25%; Merchant citizens appear 50% more often",
+   "maxPerTown": 1
+  }
+ },
+ {
+  "id": "mw_s_rural_summer",
+  "file": "models/mw_s_rural_summer.glb",
+  "name": "Rural house, summer",
+  "game": "My World",
+  "triangles": 3942,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "rural",
+   "season": "summer",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_rural_autumn",
+  "file": "models/mw_s_rural_autumn.glb",
+  "name": "Rural house, autumn",
+  "game": "My World",
+  "triangles": 3012,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "rural",
+   "season": "autumn",
+   "staged": true
+  }
+ },
+ {
+  "id": "mw_s_rural_winter",
+  "file": "models/mw_s_rural_winter.glb",
+  "name": "Rural house, winter",
+  "game": "My World",
+  "triangles": 3205,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "rural",
+   "season": "winter",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_urban_summer",
+  "file": "models/mw_s_urban_summer.glb",
+  "name": "Urban townhouse, summer",
+  "game": "My World",
+  "triangles": 5144,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "urban",
+   "season": "summer",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_urban_autumn",
+  "file": "models/mw_s_urban_autumn.glb",
+  "name": "Urban townhouse, autumn",
+  "game": "My World",
+  "triangles": 5594,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "urban",
+   "season": "autumn",
+   "staged": true
+  }
+ },
+ {
+  "id": "mw_s_urban_winter",
+  "file": "models/mw_s_urban_winter.glb",
+  "name": "Urban townhouse, winter",
+  "game": "My World",
+  "triangles": 6105,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "urban",
+   "season": "winter",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_tree_summer",
+  "file": "models/mw_s_tree_summer.glb",
+  "name": "Tree, summer",
+  "game": "My World",
+  "triangles": 437,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "tree",
+   "season": "summer",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_tree_autumn",
+  "file": "models/mw_s_tree_autumn.glb",
+  "name": "Tree, autumn",
+  "game": "My World",
+  "triangles": 325,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "tree",
+   "season": "autumn",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_tree_winter",
+  "file": "models/mw_s_tree_winter.glb",
+  "name": "Tree, winter",
+  "game": "My World",
+  "triangles": 356,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "tree",
+   "season": "winter",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_tree_spring",
+  "file": "models/mw_s_tree_spring.glb",
+  "name": "Tree, spring",
+  "game": "My World",
+  "triangles": 766,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "tree",
+   "season": "spring",
+   "staged": false
+  }
+ },
+ {
+  "id": "mw_s_rural_spring",
+  "file": "models/mw_s_rural_spring.glb",
+  "name": "Rural house, spring",
+  "game": "My World",
+  "triangles": 5442,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "rural",
+   "season": "spring",
+   "staged": true
+  }
+ },
+ {
+  "id": "mw_s_urban_spring",
+  "file": "models/mw_s_urban_spring.glb",
+  "name": "Urban townhouse, spring",
+  "game": "My World",
+  "triangles": 6644,
+  "atlas": "models/mw_atlas.webp",
+  "season": {
+   "subject": "urban",
+   "season": "spring",
+   "staged": true
+  }
+ }
+]
